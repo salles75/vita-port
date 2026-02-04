@@ -1,0 +1,11 @@
+/**
+ * Vita - Main Entry Point
+ * Ponto de entrada principal da aplicação Angular.
+ */
+
+import { bootstrapApplication } from '@angular/platform-browser';
+import { appConfig } from './app/app.config';
+import { AppComponent } from './app/app.component';
+
+bootstrapApplication(AppComponent, appConfig)
+  .catch((err) => console.error('Erro ao inicializar aplicação:', err));

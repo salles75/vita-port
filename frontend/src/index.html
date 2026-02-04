@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vita - Telemedicina e Monitoramento</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portal de Telemedicina para médicos - Acompanhamento de sinais vitais, agendamentos e históricos de saúde" />
+    <meta name="theme-color" content="#0A3D3D" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  </head>
+  <body>
+    <app-root></app-root>
+    
+    <!-- Loading indicator -->
+    <style>
+      .app-loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #0A3D3D 0%, #0D5454 50%, #0A3D3D 100%);
+        z-index: 9999;
+        transition: opacity 0.3s ease;
+      }
+      .app-loading.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .app-loading__logo {
+        font-size: 64px;
+        margin-bottom: 24px;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      .app-loading__text {
+        font-family: 'Outfit', sans-serif;
+        font-size: 28px;
+        font-weight: 600;
+        color: #FFFFFF;
+        letter-spacing: 4px;
+        margin-bottom: 32px;
+      }
+      .app-loading__spinner {
+        width: 48px;
+        height: 48px;
+        border: 3px solid rgba(255, 255, 255, 0.2);
+        border-top-color: #FF7A5C;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+      }
+    </style>
+    <div class="app-loading" id="app-loading">
+      <div class="app-loading__logo">🩺</div>
+      <div class="app-loading__text">VITA</div>
+      <div class="app-loading__spinner"></div>
+    </div>
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          document.getElementById('app-loading').classList.add('hidden');
+        }, 500);
+      });
+    </script>
+  </body>
+</html>
